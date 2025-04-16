@@ -3,6 +3,7 @@ import Foundation
 class QuestionEngine: ObservableObject {
     @Published var currentQuestion: Question?
     @Published var score: [Element: Int] = [:]
+    @Published var miniCheckInComplete = false
 
     private var questionMap: [String: Question] = [:]
 
@@ -53,8 +54,10 @@ class QuestionEngine: ObservableObject {
         print("🔥 Score updated: \(score)")
 
         if option.next == "END" {
+            if !isFirstTime {
+                miniCheckInComplete = true
+            }
             currentQuestion = nil
-            UserDefaults.standard.set(true, forKey: "hasCompletedInitialQuiz")
             print("🎉 Quiz complete. Marked as finished.")
         } else {
             currentQuestion = questionMap[option.next]

@@ -1,10 +1,3 @@
-//
-//  MiniCheckInView.swift
-//  MindMirror
-//
-//  Created by Sinai Ariel on 16/04/2025.
-//
-
 import SwiftUI
 
 struct MiniCheckInView: View {
@@ -16,6 +9,9 @@ struct MiniCheckInView: View {
     @State private var showResults = false
 
     private let miniSessionCount = 4
+
+    // NEW: Optional callback to signal quiz is done
+    var onFinished: (() -> Void)? = nil
 
     var body: some View {
         NavigationStack {
@@ -38,6 +34,7 @@ struct MiniCheckInView: View {
 
                         Button("Done") {
                             dismiss()
+                            onFinished?()
                         }
                         .buttonStyle(.borderedProminent)
                         .padding(.top, 24)
@@ -63,11 +60,14 @@ struct MiniCheckInView: View {
                 }
             }
             .navigationTitle("Check-In")
+            #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Close") {
                         dismiss()
+                        onFinished?()
                     }
                 }
             }

@@ -1,10 +1,3 @@
-//
-//  MindMirrorView.swift
-//  MindMirror
-//
-//  Created by Sinai Ariel on 16/04/2025.
-//
-
 import SwiftUI
 
 #if canImport(UIKit)
@@ -15,9 +8,9 @@ struct MindMirrorView: View {
     @StateObject private var engine = QuestionEngine()
     @State private var showMenu = false
     @State private var showMiniCheckIn = false
+    @State private var showMiniResults = false
 
     var body: some View {
-        
         let _ = print("📍 MindMirrorView loaded. isFirstTime = \(engine.isFirstTime)")
 
         ZStack(alignment: .topLeading) {
@@ -36,9 +29,15 @@ struct MindMirrorView: View {
                             fullResultsView
                         }
                     } else {
-                        // Returning user → welcome + mini check-in
-                        WelcomeBackView {
-                            showMiniCheckIn = true
+                        if showMiniResults {
+                            MiniResultsView(score: engine.score) {
+                                showMiniResults = false
+                                engine.reset() // Reset state after showing
+                            }
+                        } else {
+                            WelcomeBackView {
+                                showMiniCheckIn = true
+                            }
                         }
                     }
                 }
@@ -52,12 +51,28 @@ struct MindMirrorView: View {
             hamburgerIcon
             sideMenuOverlay
         }
+
+        // MARK: Present Mini Check-In (Different for iOS/macOS)
+        #if os(iOS)
         .fullScreenCover(isPresented: $showMiniCheckIn) {
-            MiniCheckInView()
+            MiniCheckInView(onFinished: {
+                showMiniCheckIn = false
+                showMiniResults = true
+            })
         }
+        #else
+        .sheet(isPresented: $showMiniCheckIn) {
+            MiniCheckInView(onFinished: {
+                showMiniCheckIn = false
+                showMiniResults = true
+            })
+        }
+        #endif
+
         .animation(.easeInOut, value: showMenu)
     }
 
+    // MARK: Full Quiz Results
     private var fullResultsView: some View {
         VStack(spacing: 16) {
             Text("Your Core Elements")
@@ -83,6 +98,7 @@ struct MindMirrorView: View {
         .padding()
     }
 
+    // MARK: Hamburger Icon
     private var hamburgerIcon: some View {
         VStack {
             HStack {
@@ -105,6 +121,7 @@ struct MindMirrorView: View {
         .zIndex(999)
     }
 
+    // MARK: Side Menu Overlay
     private var sideMenuOverlay: some View {
         Group {
             if showMenu {
@@ -134,9 +151,7 @@ struct MindMirrorView: View {
         switch option {
         case .profile:
             break
-        case .retake:
-            engine.reset()
-        case .reset:
+        case .retake, .reset:
             engine.reset()
         }
     }
