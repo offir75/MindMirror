@@ -6,19 +6,13 @@
       {
         "label": "Sunrise",
         "emoji": "🌅",
-        "elementScores": {
-          "fire": 1,
-          "air": 1
-        },
+        "elementScores": { "fire": 1, "air": 1 },
         "next": "Q2"
       },
       {
         "label": "Moonlight",
         "emoji": "🌙",
-        "elementScores": {
-          "water": 1,
-          "earth": 1
-        },
+        "elementScores": { "water": 1, "earth": 1 },
         "next": "Q3"
       }
     ]
@@ -30,17 +24,13 @@
       {
         "label": "Movement",
         "emoji": "🔥",
-        "elementScores": {
-          "fire": 2
-        },
+        "elementScores": { "fire": 2 },
         "next": "Q4"
       },
       {
         "label": "Ideas",
         "emoji": "🌬️",
-        "elementScores": {
-          "air": 2
-        },
+        "elementScores": { "air": 2 },
         "next": "Q5"
       }
     ]
@@ -52,17 +42,13 @@
       {
         "label": "Your heart",
         "emoji": "💧",
-        "elementScores": {
-          "water": 2
-        },
+        "elementScores": { "water": 2 },
         "next": "Q5"
       },
       {
         "label": "Your space",
         "emoji": "🌿",
-        "elementScores": {
-          "earth": 2
-        },
+        "elementScores": { "earth": 2 },
         "next": "Q6"
       }
     ]
@@ -74,17 +60,13 @@
       {
         "label": "A torch",
         "emoji": "🔥",
-        "elementScores": {
-          "fire": 2
-        },
+        "elementScores": { "fire": 2 },
         "next": "Q7"
       },
       {
         "label": "A chisel",
         "emoji": "🌿",
-        "elementScores": {
-          "earth": 2
-        },
+        "elementScores": { "earth": 2 },
         "next": "Q6"
       }
     ]
@@ -96,17 +78,13 @@
       {
         "label": "Wind through trees",
         "emoji": "🌬️",
-        "elementScores": {
-          "air": 2
-        },
+        "elementScores": { "air": 2 },
         "next": "Q7"
       },
       {
         "label": "Ocean’s pull",
         "emoji": "💧",
-        "elementScores": {
-          "water": 2
-        },
+        "elementScores": { "water": 2 },
         "next": "Q8"
       }
     ]
@@ -118,17 +96,13 @@
       {
         "label": "Ritual",
         "emoji": "🌿",
-        "elementScores": {
-          "earth": 2
-        },
+        "elementScores": { "earth": 2 },
         "next": "Q9"
       },
       {
         "label": "Vulnerability",
         "emoji": "💧",
-        "elementScores": {
-          "water": 2
-        },
+        "elementScores": { "water": 2 },
         "next": "Q10"
       }
     ]
@@ -140,17 +114,13 @@
       {
         "label": "The unknown",
         "emoji": "🔥",
-        "elementScores": {
-          "fire": 2
-        },
+        "elementScores": { "fire": 2 },
         "next": "Q10"
       },
       {
         "label": "Losing control",
         "emoji": "💧",
-        "elementScores": {
-          "water": 2
-        },
+        "elementScores": { "water": 2 },
         "next": "Q8"
       }
     ]
@@ -162,19 +132,13 @@
       {
         "label": "Silence",
         "emoji": "💧",
-        "elementScores": {
-          "water": 1,
-          "earth": 1
-        },
+        "elementScores": { "water": 1, "earth": 1 },
         "next": "Q9"
       },
       {
         "label": "Dreams",
         "emoji": "🌬️",
-        "elementScores": {
-          "air": 1,
-          "fire": 1
-        },
+        "elementScores": { "air": 1, "fire": 1 },
         "next": "Q10"
       }
     ]
@@ -186,17 +150,13 @@
       {
         "label": "Ritual",
         "emoji": "🌿",
-        "elementScores": {
-          "earth": 2
-        },
+        "elementScores": { "earth": 2 },
         "next": "END"
       },
       {
         "label": "Wonder",
         "emoji": "🌬️",
-        "elementScores": {
-          "air": 2
-        },
+        "elementScores": { "air": 2 },
         "next": "END"
       }
     ]
@@ -208,19 +168,193 @@
       {
         "label": "Forward",
         "emoji": "🔥",
-        "elementScores": {
-          "fire": 1,
-          "air": 1
-        },
+        "elementScores": { "fire": 1, "air": 1 },
         "next": "END"
       },
       {
         "label": "Inward",
         "emoji": "💧",
-        "elementScores": {
-          "water": 1,
-          "earth": 1
-        },
+        "elementScores": { "water": 1, "earth": 1 },
+        "next": "END"
+      }
+    ]
+  },
+  {
+    "id": "Q11",
+    "prompt": "You find a sealed envelope. What do you do?",
+    "options": [
+      {
+        "label": "Open it immediately",
+        "emoji": "📩",
+        "elementScores": { "fire": 2 },
+        "next": "END"
+      },
+      {
+        "label": "Hold it until the time feels right",
+        "emoji": "🕰️",
+        "elementScores": { "water": 2 },
+        "next": "END"
+      }
+    ]
+  },
+  {
+    "id": "Q12",
+    "prompt": "A doorway appears. What kind is it?",
+    "options": [
+      {
+        "label": "A swirling portal",
+        "emoji": "🌀",
+        "elementScores": { "air": 2 },
+        "next": "END"
+      },
+      {
+        "label": "A stone arch",
+        "emoji": "🏛️",
+        "elementScores": { "earth": 2 },
+        "next": "END"
+      }
+    ]
+  },
+  {
+    "id": "Q13",
+    "prompt": "Your presence feels like...",
+    "options": [
+      {
+        "label": "A spark in the dark",
+        "emoji": "✨",
+        "elementScores": { "fire": 2 },
+        "next": "END"
+      },
+      {
+        "label": "A quiet stream",
+        "emoji": "🌊",
+        "elementScores": { "water": 2 },
+        "next": "END"
+      }
+    ]
+  },
+  {
+    "id": "Q14",
+    "prompt": "How do you listen?",
+    "options": [
+      {
+        "label": "With stillness",
+        "emoji": "🪨",
+        "elementScores": { "earth": 2 },
+        "next": "END"
+      },
+      {
+        "label": "With curiosity",
+        "emoji": "🎈",
+        "elementScores": { "air": 2 },
+        "next": "END"
+      }
+    ]
+  },
+  {
+    "id": "Q15",
+    "prompt": "What draws your eye?",
+    "options": [
+      {
+        "label": "The flame",
+        "emoji": "🔥",
+        "elementScores": { "fire": 2 },
+        "next": "END"
+      },
+      {
+        "label": "The ripple",
+        "emoji": "💦",
+        "elementScores": { "water": 2 },
+        "next": "END"
+      }
+    ]
+  },
+  {
+    "id": "Q16",
+    "prompt": "A tree speaks. What does it say?",
+    "options": [
+      {
+        "label": "Stand tall",
+        "emoji": "🌲",
+        "elementScores": { "earth": 2 },
+        "next": "END"
+      },
+      {
+        "label": "Let go of your leaves",
+        "emoji": "🍃",
+        "elementScores": { "air": 2 },
+        "next": "END"
+      }
+    ]
+  },
+  {
+    "id": "Q17",
+    "prompt": "The world inside you is more like...",
+    "options": [
+      {
+        "label": "Lava beneath stone",
+        "emoji": "🌋",
+        "elementScores": { "fire": 1, "earth": 1 },
+        "next": "END"
+      },
+      {
+        "label": "Clouds above water",
+        "emoji": "🌫️",
+        "elementScores": { "air": 1, "water": 1 },
+        "next": "END"
+      }
+    ]
+  },
+  {
+    "id": "Q18",
+    "prompt": "Which moment calls you?",
+    "options": [
+      {
+        "label": "The leap",
+        "emoji": "🏃‍♂️",
+        "elementScores": { "fire": 2 },
+        "next": "END"
+      },
+      {
+        "label": "The pause",
+        "emoji": "⏸️",
+        "elementScores": { "water": 2 },
+        "next": "END"
+      }
+    ]
+  },
+  {
+    "id": "Q19",
+    "prompt": "In a storm, you...",
+    "options": [
+      {
+        "label": "Run into the rain",
+        "emoji": "🌧️",
+        "elementScores": { "air": 1, "fire": 1 },
+        "next": "END"
+      },
+      {
+        "label": "Find shelter beneath a tree",
+        "emoji": "🌳",
+        "elementScores": { "earth": 1, "water": 1 },
+        "next": "END"
+      }
+    ]
+  },
+  {
+    "id": "Q20",
+    "prompt": "A friend needs help. You offer...",
+    "options": [
+      {
+        "label": "A spark of hope",
+        "emoji": "🔦",
+        "elementScores": { "fire": 2 },
+        "next": "END"
+      },
+      {
+        "label": "A soft ear",
+        "emoji": "👂",
+        "elementScores": { "water": 2 },
         "next": "END"
       }
     ]

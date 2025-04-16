@@ -1,41 +1,72 @@
-//
-//  QuestionEngine.swift
-//  MindMirror
-//
-//  Created by Sinai Ariel on 16/04/2025.
-//
+import Foundation
 
 class QuestionEngine: ObservableObject {
-    @Published var currentQuestion: Question
-    @Published var history: [Question] = []
+    @Published var currentQuestion: Question?
     @Published var score: [Element: Int] = [:]
 
-    private var questionBank: [Question]
+    private var questionMap: [String: Question] = [:]
 
-    init(questionBank: [Question]) {
-        self.questionBank = questionBank.shuffled()
-        self.currentQuestion = questionBank.first!
+    // MARK: - First Time Logic
+    var isFirstTime: Bool {
+        !UserDefaults.standard.bool(forKey: "hasCompletedInitialQuiz")
     }
 
-    func answerSelected(_ option: AnswerOption) {
-        history.append(currentQuestion)
-        option.elementScores.forEach { score[$0.key, default: 0] += $0.value }
+    var allQuestions: [Question] {
+        Array(questionMap.values)
+    }
 
-        if let nextId = currentQuestion.nextQuestionIdByAnswer?[option.id],
-           let next = questionBank.first(where: { $0.id == nextId }) {
-            currentQuestion = next
-        } else {
-            currentQuestion = getNextRandomQuestion()
+    init() {
+        loadQuestions()
+        currentQuestion = questionMap["Q1"]
+
+        print("🧪 Initialized engine. Found Q1? \(currentQuestion != nil ? "✅ YES" : "❌ NO")")
+    }
+
+    // MARK: - Load from JSON
+    private func loadQuestions() {
+        guard let url = Bundle.main.url(forResource: "unfold_questions", withExtension: "json") else {
+            print("❌ Could not find unfold_questions.json")
+            return
+        }
+
+        print("✅ Found JSON at: \(url.path)")
+
+        do {
+            let data = try Data(contentsOf: url)
+            print("✅ Loaded JSON data: \(data.count) bytes")
+
+            let decoded = try JSONDecoder().decode([Question].self, from: data)
+            print("✅ Decoded questions: \(decoded.map { $0.id })")
+
+            questionMap = Dictionary(uniqueKeysWithValues: decoded.map { ($0.id, $0) })
+        } catch {
+            print("❌ Failed to decode questions: \(error)")
         }
     }
 
-    func goBack() {
-        guard let last = history.popLast() else { return }
-        currentQuestion = last
+    // MARK: - Handle Answer
+    func answerSelected(_ option: AnswerOption) {
+        for (element, value) in option.resolvedScores {
+            score[element, default: 0] += value
+        }
+
+        print("🔥 Score updated: \(score)")
+
+        if option.next == "END" {
+            currentQuestion = nil
+            UserDefaults.standard.set(true, forKey: "hasCompletedInitialQuiz")
+            print("🎉 Quiz complete. Marked as finished.")
+        } else {
+            currentQuestion = questionMap[option.next]
+            print("➡️ Moved to question \(option.next)")
+        }
     }
 
-    private func getNextRandomQuestion() -> Question {
-        let remaining = questionBank.filter { !history.contains($0) }
-        return remaining.randomElement() ?? currentQuestion
+    // MARK: - Reset
+    func reset() {
+        score = [:]
+        currentQuestion = questionMap["Q1"]
+        UserDefaults.standard.set(false, forKey: "hasCompletedInitialQuiz")
+        print("🔄 Reset quiz and cleared first-time flag.")
     }
 }

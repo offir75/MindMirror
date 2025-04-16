@@ -1,0 +1,228 @@
+[
+  {
+    "id": "Q1",
+    "prompt": "Look up. What sky do you see?",
+    "options": [
+      {
+        "label": "Sunrise",
+        "emoji": "🌅",
+        "elementScores": {
+          "fire": 1,
+          "air": 1
+        },
+        "next": "Q2"
+      },
+      {
+        "label": "Moonlight",
+        "emoji": "🌙",
+        "elementScores": {
+          "water": 1,
+          "earth": 1
+        },
+        "next": "Q3"
+      }
+    ]
+  },
+  {
+    "id": "Q2",
+    "prompt": "What pulls you more?",
+    "options": [
+      {
+        "label": "Movement",
+        "emoji": "🔥",
+        "elementScores": {
+          "fire": 2
+        },
+        "next": "Q4"
+      },
+      {
+        "label": "Ideas",
+        "emoji": "🌬️",
+        "elementScores": {
+          "air": 2
+        },
+        "next": "Q5"
+      }
+    ]
+  },
+  {
+    "id": "Q3",
+    "prompt": "What do you guard first?",
+    "options": [
+      {
+        "label": "Your heart",
+        "emoji": "💧",
+        "elementScores": {
+          "water": 2
+        },
+        "next": "Q5"
+      },
+      {
+        "label": "Your space",
+        "emoji": "🌿",
+        "elementScores": {
+          "earth": 2
+        },
+        "next": "Q6"
+      }
+    ]
+  },
+  {
+    "id": "Q4",
+    "prompt": "You pick up a tool. It is...",
+    "options": [
+      {
+        "label": "A torch",
+        "emoji": "🔥",
+        "elementScores": {
+          "fire": 2
+        },
+        "next": "Q7"
+      },
+      {
+        "label": "A chisel",
+        "emoji": "🌿",
+        "elementScores": {
+          "earth": 2
+        },
+        "next": "Q6"
+      }
+    ]
+  },
+  {
+    "id": "Q5",
+    "prompt": "Something calls from a distance...",
+    "options": [
+      {
+        "label": "Wind through trees",
+        "emoji": "🌬️",
+        "elementScores": {
+          "air": 2
+        },
+        "next": "Q7"
+      },
+      {
+        "label": "Ocean’s pull",
+        "emoji": "💧",
+        "elementScores": {
+          "water": 2
+        },
+        "next": "Q8"
+      }
+    ]
+  },
+  {
+    "id": "Q6",
+    "prompt": "Trust begins with...",
+    "options": [
+      {
+        "label": "Ritual",
+        "emoji": "🌿",
+        "elementScores": {
+          "earth": 2
+        },
+        "next": "Q9"
+      },
+      {
+        "label": "Vulnerability",
+        "emoji": "💧",
+        "elementScores": {
+          "water": 2
+        },
+        "next": "Q10"
+      }
+    ]
+  },
+  {
+    "id": "Q7",
+    "prompt": "You take a risk. You choose...",
+    "options": [
+      {
+        "label": "The unknown",
+        "emoji": "🔥",
+        "elementScores": {
+          "fire": 2
+        },
+        "next": "Q10"
+      },
+      {
+        "label": "Losing control",
+        "emoji": "💧",
+        "elementScores": {
+          "water": 2
+        },
+        "next": "Q8"
+      }
+    ]
+  },
+  {
+    "id": "Q8",
+    "prompt": "You return to...",
+    "options": [
+      {
+        "label": "Silence",
+        "emoji": "💧",
+        "elementScores": {
+          "water": 1,
+          "earth": 1
+        },
+        "next": "Q9"
+      },
+      {
+        "label": "Dreams",
+        "emoji": "🌬️",
+        "elementScores": {
+          "air": 1,
+          "fire": 1
+        },
+        "next": "Q10"
+      }
+    ]
+  },
+  {
+    "id": "Q9",
+    "prompt": "What grounds you?",
+    "options": [
+      {
+        "label": "Ritual",
+        "emoji": "🌿",
+        "elementScores": {
+          "earth": 2
+        },
+        "next": "END"
+      },
+      {
+        "label": "Wonder",
+        "emoji": "🌬️",
+        "elementScores": {
+          "air": 2
+        },
+        "next": "END"
+      }
+    ]
+  },
+  {
+    "id": "Q10",
+    "prompt": "Choose a direction.",
+    "options": [
+      {
+        "label": "Forward",
+        "emoji": "🔥",
+        "elementScores": {
+          "fire": 1,
+          "air": 1
+        },
+        "next": "END"
+      },
+      {
+        "label": "Inward",
+        "emoji": "💧",
+        "elementScores": {
+          "water": 1,
+          "earth": 1
+        },
+        "next": "END"
+      }
+    ]
+  }
+]

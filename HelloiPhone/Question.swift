@@ -1,23 +1,14 @@
-enum QuestionType: String, Codable {
-    case binary
-    case multipleChoice
-    case slider
-}
+// Question.swift
+// MindMirror
+//
+// Created by Offir Ariel on 14/04/2025.
 
-struct AnswerOption: Identifiable, Codable {
-    let id: UUID
-    let label: String       // emoji, color, or short word
-    let elementScores: [Element: Int]
-    let positionHint: String? // Optional: "topLeft", "bottomRight" — for UI randomness
-}
+import Foundation
 
-struct Question: Identifiable, Codable {
-    let id: UUID
-    let type: QuestionType
+struct Question: Codable, Identifiable {
+    let id: String
     let prompt: String
-    let options: [AnswerOption]      // used for binary and multipleChoice
-    let sliderLabels: (String, String)? // only for slider
-    let elementMapForSlider: ((Double) -> [Element: Int])? // function-like logic for scale
-    let tags: [String]?
-    let nextQuestionIdByAnswer: [UUID: UUID]? // optional for branching logic
+    let options: [AnswerOption]
+
+    var identity: String { id }
 }
